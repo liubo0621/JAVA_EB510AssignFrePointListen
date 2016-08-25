@@ -1,4 +1,4 @@
-package com.tools;
+package com.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -243,7 +243,7 @@ public class Tools {
 		}
 		
     	File file = new File(srcFileName);
-    	if (file.length() < 102400) { //文件小于100k
+    	if (!file.exists() || file.length() < 102400) { //文件小于100k
 			return false; //不拷贝
 		}
     	try {
@@ -268,6 +268,13 @@ public class Tools {
 		}
     	
     	return true;
+    }
+    
+    public void makeDir(String destFileName){
+    	File path = new File(destFileName);
+		if (!path.getParentFile().exists()) {
+			path.getParentFile().mkdirs();
+		}
     }
     
     private SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
@@ -299,14 +306,14 @@ public class Tools {
     //读取properties文件
     
     static Properties pps = new Properties();
-//    static{
-//		try {
-//			String path = Thread.currentThread().getContextClassLoader().getResource("assign_fre_point_listen.properties").getPath();
-//			pps.load(new FileInputStream(path));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//    }
+    static{
+		try {
+			String path = Thread.currentThread().getContextClassLoader().getResource("eafpl.properties").getPath();
+			pps.load(new FileInputStream(path));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 	public String getProperty(String key) {
 		return pps.getProperty(key);
 	}
