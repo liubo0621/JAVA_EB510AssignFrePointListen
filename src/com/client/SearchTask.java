@@ -58,7 +58,7 @@ public class SearchTask implements Runnable{
 						 "left join tab_mam_freq f on f.freq_id=g.freq_id " +
 						 "left join tab_mam_receiver r on r.receiver_id=g.receiver_id " +
 						 "where g.status=70 and g.start_time<=sysdate and r.ip='"+ receiverIp + "' and r.port=" + receiverPort + " " +
-						 "order by f.freq_pri DESC";
+						 "order by g.priorty ASC";
 			ResultSet taskRS = crud.find(taskSql);
 			
 //			System.out.println(taskSql);
