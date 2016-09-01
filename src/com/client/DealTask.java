@@ -26,7 +26,7 @@ public class DealTask implements Runnable{
 	private long udpExampleAddr;
 	
 	static{
-		System.load("D://WorkSpace//VC//EB510AssignFrePointListen//x64//Debug//EB510AssignFrePointListen.dll");
+		System.load("D://WorkSpace//VC//EB510AssignFrePointListen//Debug//EB510AssignFrePointListen.dll");
 	}
 	
 	/**
