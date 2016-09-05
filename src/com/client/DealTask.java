@@ -78,11 +78,11 @@ public class DealTask implements Runnable{
 		
 		String startT = tools.formatDate(beginTime);
 		String endT = tools.formatDate(endTime);
-		String path = frequence + "\\" + tools.getCurrentDay() +"\\";
+		String path = frequence + "\\" + tools.getCurrentDay() +"\\" + beginTime + "_" + tools.getCurrentTime() + ".wav";
 		String remoteSavePath = serverPath + path;
 		
 		//拷贝文件到远程 并插入到文件表中
-		if(tools.cpSrcFileToDestFile(localFilePath, remoteSavePath + beginTime + "_" + tools.getCurrentTime() + ".wav")){
+		if(tools.cpSrcFileToDestFile(localFilePath, remoteSavePath)){
 			 String sql = "insert into tab_file (file_id,file_name, start_time,end_time ,freq_id, sto_id, sto_path, score_status, task_id, grap_id) " +
 		              "values(seq_global.nextval,'"+fileName+"', to_date('"+startT+"','yyyy-mm-dd hh24:mi:ss'),to_date('"+endT+"','yyyy-mm-dd hh24:mi:ss'),"+freqId+",2,'"+path+"',70,"+taskId+","+grapId+")";
 			 CRUD crud = new CRUD();

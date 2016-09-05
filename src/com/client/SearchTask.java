@@ -1,20 +1,12 @@
 package com.client;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 import com.db.operation.CRUD;
 import com.util.Config;
 import com.util.Constance;
 import com.util.Log;
-import com.util.Tools;
 
 /**
  * @author Boris
