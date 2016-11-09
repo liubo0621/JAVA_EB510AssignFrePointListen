@@ -1,8 +1,10 @@
 package com.client;
 
+import java.io.File;
+
 import com.db.operation.CRUD;
-import com.util.Config;
 import com.util.Constance;
+import com.util.Log;
 import com.util.Tools;
 
 /**
@@ -69,6 +71,14 @@ public class DealTask implements Runnable{
 		
 		//调频 截频 c++实现
 		doTask(udpExampleAddr, receiverIp, receiverPort, frequence, localFilePath, String.valueOf(fileTotalTime));
+		
+		File file = new File(localFilePath);
+		if (!file.exists()) {
+			Log.out.warn(String.format("连接%s接收机失败", receiverIp));
+			updateReceiverStatus(receiverIp, receiverPort, Constance.Reveiver.FREE);
+			updateGrapTaskStatus(grapId, Constance.Task.WAIT);
+			return;
+		}
 		
 		//更新数据库接收机状态
 		updateReceiverStatus(receiverIp, receiverPort, Constance.Reveiver.FREE);
