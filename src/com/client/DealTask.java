@@ -3,6 +3,7 @@ package com.client;
 import java.io.File;
 
 import com.db.operation.CRUD;
+import com.util.Config;
 import com.util.Constance;
 import com.util.Log;
 import com.util.Tools;
@@ -28,7 +29,11 @@ public class DealTask implements Runnable{
 	private long udpExampleAddr;
 	
 	static{
-		System.load("D://WorkSpace//VC//EB510AssignFrePointListen//Debug//EB510AssignFrePointListen.dll");
+		if(Config.RUN_ON_MYECLIPSE){
+			System.load("D://WorkSpace//VC//EB510AssignFrePointListen//Debug//EB510AssignFrePointListen.dll");
+		}else{
+			System.loadLibrary("EB510AssignFrePointListen.dll");
+		}
 	}
 	
 	/**

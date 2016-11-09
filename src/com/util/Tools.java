@@ -308,8 +308,13 @@ public class Tools {
     static Properties pps = new Properties();
     static{
 		try {
-			String path = Thread.currentThread().getContextClassLoader().getResource("eafpl.properties").getPath();
-			pps.load(new FileInputStream(path));
+			if (Config.RUN_ON_MYECLIPSE) {
+				String path = Thread.currentThread().getContextClassLoader().getResource("eafpl.properties").getPath();
+				pps.load(new FileInputStream(path));
+			}else{
+				pps.load(new FileInputStream("config/eafpl.properties"));//这种需要把配置文件放到环境变量中
+			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
