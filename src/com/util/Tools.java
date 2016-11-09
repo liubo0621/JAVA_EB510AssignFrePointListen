@@ -315,7 +315,7 @@ public class Tools {
 		}
     }
 	public String getProperty(String key) {
-		return pps.getProperty(key);
+		return pps.getProperty(key).trim();
 	}
 	
 }
