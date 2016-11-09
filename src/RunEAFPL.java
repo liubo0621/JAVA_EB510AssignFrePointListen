@@ -6,8 +6,9 @@ public class RunEAFPL{
 	private static Tools tools = Tools.getTools();
 	
 	public static void main(String[] args) {
-		String []receivers = tools.getProperty("receivers").split(",");
-		for (String receiver : receivers) {
+		int receivers = Integer.parseInt(tools.getProperty("receivers"));
+		for (int i = 1; i<= receivers; i++) {
+			String receiver = "receiver" + i;
 			String rPort = tools.getProperty(receiver + ".port");
 			String rIp = tools.getProperty(receiver + ".ip");
 			

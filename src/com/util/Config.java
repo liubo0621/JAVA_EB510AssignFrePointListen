@@ -8,8 +8,6 @@ package com.util;
  */
 public class Config {
 	public static final String APPLAY_PWD = "abcdeabcdeabcdea"; //申请口令 16个数字，英文字符
-
-	public static final String LOCAL_SAVE_PATH = "D:\\eb510file\\";
 	
 	public static final int USE_WAY = 0x00; //0独占  ；1 共享有控制权； 2共享没有控制权
 	public static final int CONTROLLER_TCP_PORT = 5770;

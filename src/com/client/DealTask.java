@@ -62,7 +62,8 @@ public class DealTask implements Runnable{
 		updateGrapTaskStatus(grapId, Constance.Task.DOING);
 		
 		String beginTime = tools.getCurrentTime();
-		String localFilePath = Config.LOCAL_SAVE_PATH  + frequence + "\\" + tools.getCurrentDay() +"\\" + beginTime + ".wav";
+		
+		String localFilePath = tools.getProperty("local_save_path") + frequence + "\\" + tools.getCurrentDay() +"\\" + beginTime + ".wav";
 		// 检查本地存储路径是否存在， 不存在则创建
 		tools.makeDir(localFilePath);
 		
