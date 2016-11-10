@@ -32,7 +32,7 @@ public class DealTask implements Runnable{
 		if(Config.RUN_ON_MYECLIPSE){
 			System.load("D://WorkSpace//VC//EB510AssignFrePointListen//Debug//EB510AssignFrePointListen.dll");
 		}else{
-			System.loadLibrary("EB510AssignFrePointListen.dll");
+			System.loadLibrary("EB510AssignFrePointListen");
 		}
 	}
 	
